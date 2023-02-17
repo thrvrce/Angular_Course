@@ -1,0 +1,12 @@
+<div >
+  <app-header></app-header>
+  <p>courses works!</p>
+  <app-course-list
+    (showCardEvent)="log($event)"
+    (deleteCardEvent)="log($event)"
+    (editCardEvent)="log($event)"
+    [courses]="courses"
+    [isCoursesEditable]="isCoursesEditable" />
+  <app-button></app-button>
+  <app-info></app-info>
+</div>

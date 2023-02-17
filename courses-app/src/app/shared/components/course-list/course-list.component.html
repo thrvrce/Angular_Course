@@ -1,0 +1,9 @@
+<div>
+  <ng-container *ngFor="let item of coursesData">
+    <app-course-card [courseInfo]="item" [isCourseEditable]="item.isEditable">
+      <app-button (click)="showCard(item.id)" text="Show course"></app-button>
+      <app-button (click)="deleteCard(item.id)" edit [withSingleIcon]="true"  [withSingleIcon]="true" iconName="trash"></app-button>
+      <app-button (click)="editCard(item.id)" edit [withSingleIcon]="true"  [withSingleIcon]="true" iconName="edit"></app-button>
+    </app-course-card>
+  </ng-container>
+</div>
