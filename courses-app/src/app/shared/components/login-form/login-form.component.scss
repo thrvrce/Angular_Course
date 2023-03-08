@@ -6,4 +6,30 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    margin-top: 54px;
+
+    &-input {
+      height: 50px;
+      width: 286px;
+
+      &_error {
+        border: 2px solid red;
+      }
+    }
+
+    &-error-text {
+      color: red;
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: center;
+    width: 286px;
+    margin-top: 54px;
+  }
 }

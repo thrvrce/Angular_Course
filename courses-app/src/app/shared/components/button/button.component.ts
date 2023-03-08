@@ -11,6 +11,7 @@ export class ButtonComponent {
   @Input() text = 'Button'
   @Input() iconName = ''
   @Input() withSingleIcon = false
+  @Input() type = 'button'
 
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fas);
