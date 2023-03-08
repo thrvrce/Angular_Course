@@ -2,8 +2,7 @@
 <div class="app-plate">
   <div class="login-form">
     <div>
-      <form #form='ngForm'>
-
+      <form #form="ngForm">
         <div class="login-form__control">
           <label for="email"><strong>Email</strong></label>
           <input
@@ -16,14 +15,34 @@
             [(ngModel)]="email"
             required
             appEmailValidator="^[A-Za-z0-9]{1,}\.[a-z]{2,3}$"
-            [ngClass]="emailControl.invalid && (form.submitted || emailControl.touched || emailControl.dirty) ? 'login-form__control-input_error' : '' "
+            [ngClass]="
+              emailControl.invalid &&
+              (form.submitted || emailControl.touched || emailControl.dirty)
+                ? 'login-form__control-input_error'
+                : ''
+            "
           />
-        </div>
-
-        <div >
-          <div *ngIf="emailControl.invalid && (form.submitted || emailControl.touched || emailControl.dirty)">
-            <div class="login-form__control-error-text" *ngIf="emailControl.errors?.['required']">Email is required.</div>
-            <div class="login-form__control-error-text" *ngIf="emailControl.errors?.['forbiddenEmail']">Email cannot be: {{emailControl.errors?.['forbiddenEmail'].value}}</div>
+          <div>
+            <div
+              *ngIf="
+                emailControl.invalid &&
+                (form.submitted || emailControl.touched || emailControl.dirty)
+              "
+            >
+              <div
+                class="login-form__control-error-text"
+                *ngIf="emailControl.errors?.['required']"
+              >
+                Email is required.
+              </div>
+              <div
+                class="login-form__control-error-text"
+                *ngIf="emailControl.errors?.['forbiddenEmail']"
+              >
+                Email cannot be:
+                {{emailControl.errors?.['forbiddenEmail'].value}}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -38,22 +57,37 @@
             placeholder="Input password"
             [(ngModel)]="password"
             required
-            [ngClass]="passwordControl.invalid && (form.submitted || passwordControl.touched || passwordControl.dirty) ? 'login-form__control-input_error' : '' "
+            [ngClass]="
+              passwordControl.invalid &&
+              (form.submitted ||
+                passwordControl.touched ||
+                passwordControl.dirty)
+                ? 'login-form__control-input_error'
+                : ''
+            "
           />
-        </div>
-
-        <div >
-          <div *ngIf="passwordControl.invalid && (form.submitted || passwordControl.touched || passwordControl.dirty)">
+          <div>
             <div
-            class="login-form__control-error-text"
-            *ngIf="passwordControl.errors?.['required']">Password is required.</div>
+              *ngIf="
+                passwordControl.invalid &&
+                (form.submitted ||
+                  passwordControl.touched ||
+                  passwordControl.dirty)
+              "
+            >
+              <div
+                class="login-form__control-error-text"
+                *ngIf="passwordControl.errors?.['required']"
+              >
+                Password is required.
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="login-form__action">
           <app-button type="submit"></app-button>
         </div>
-
       </form>
     </div>
     <div>

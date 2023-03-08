@@ -1,34 +1,74 @@
 <h2 class="text-align-center">Registration</h2>
 <div class="app-plate">
-  <div class="registration-form">
+  <form [formGroup]="registrationForm" #form="ngForm" class="registration-form">
     <div>
-      <div class="form__control">
-        <label for="name">Name</label>
+      <div class="registration-form__control">
+        <label for="name"><strong>Name</strong></label>
         <input
+        class="registration-form__control-input"
+        [ngClass]="
+          name?.invalid &&
+          (form.submitted || name?.touched || name?.dirty)
+            ? 'registration-form__control-input_error'
+            : ''
+        "
           type="text"
           id="name"
-          placeholder="Input text"
+          placeholder="Input name"
+          formControlName="name"
+          required
         />
+        <div>
+          <div *ngIf="name && name.invalid && (form.submitted || name.touched || name.dirty)">
+            <div class="registration-form__control-error-text" *ngIf="name.errors?.['required']">Name is required.</div>
+            <div class="registration-form__control-error-text" *ngIf="name.errors?.['minlength']">Name cannot be less then 6 symbols</div>
+          </div>
+        </div>
       </div>
-      <div class="form__control">
-        <label for="email">Email</label>
+      <div class="registration-form__control">
+        <label for="email"><strong>Email</strong></label>
         <input
+        class="registration-form__control-input"
+            [ngClass]="
+              email?.invalid &&
+              (form.submitted || email?.touched || email?.dirty)
+                ? 'registration-form__control-input_error'
+                : ''
+            "
           type="text"
           id="email"
-          placeholder="Input text"
+          placeholder="Input email"
+          formControlName="email"
+          required
         />
+        <div *ngIf="name && name.invalid && (form.submitted || name.touched || name.dirty)">
+          <div class="registration-form__control-error-text" *ngIf="email?.errors?.['required']">Email is required.</div>
+          <div class="registration-form__control-error-text" *ngIf="email?.errors?.['forbiddenEmail']">Email cannot be: {{email?.errors?.['forbiddenEmail'].value}}</div>
+        </div>
       </div>
-      <div class="form__control">
-        <label for="password">Password</label>
+      <div class="registration-form__control">
+        <label for="password"><strong>Password</strong></label>
         <input
+        class="registration-form__control-input"
+        [ngClass]="
+          password?.invalid &&
+          (form.submitted || password?.touched || password?.dirty)
+            ? 'registration-form__control-input_error'
+            : ''
+        "
           type="password"
           id="password"
-          placeholder="Input text"
+          placeholder="Input password"
+          formControlName="password"
+          required
         />
+        <div *ngIf="name && name.invalid && (form.submitted || name.touched || name.dirty)">
+          <div class="registration-form__control-error-text" *ngIf="password?.errors?.['required']">Password is required.</div>
+        </div>
       </div>
     </div>
-    <div class="form__action">
-      <app-button></app-button>
+    <div class="registration-form__action">
+      <app-button type="submit"></app-button>
     </div>
-  </div>
+  </form>
 </div>
