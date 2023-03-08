@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
 import { ModalComponent } from './components/modal/modal.component';
 import {
   HeaderComponent,
@@ -13,7 +15,7 @@ import {
   CourseFormComponent,
   CourseListComponent
 } from "./components";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { EmailValidatorDirective } from './directives/email-validator.directive';
 
 const COMPONENTS = [
   HeaderComponent,
@@ -25,7 +27,8 @@ const COMPONENTS = [
   LoginFormComponent,
   RegistrationFormComponent,
   CourseFormComponent,
-  CourseListComponent
+  CourseListComponent,
+  EmailValidatorDirective
 ];
 
 @NgModule({
