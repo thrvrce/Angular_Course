@@ -1,7 +1,9 @@
 <div >
   <app-header></app-header>
   <p>courses works!</p>
+  <app-search placeholder="search course"></app-search>
   <app-course-list
+    (searchEvent)="log($event)"
     (showCardEvent)="log($event)"
     (deleteCardEvent)="log($event)"
     (editCardEvent)="log($event)"
