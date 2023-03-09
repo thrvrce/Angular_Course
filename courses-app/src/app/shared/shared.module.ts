@@ -16,6 +16,8 @@ import {
   CourseListComponent
 } from "./components";
 import { EmailValidatorDirective } from './directives/email-validator.directive';
+import { DurationPipe } from './pipes/duration.pipe';
+import { CreationDatePipe } from './pipes/creatinDate.pipe';
 
 const COMPONENTS = [
   HeaderComponent,
@@ -28,7 +30,9 @@ const COMPONENTS = [
   RegistrationFormComponent,
   CourseFormComponent,
   CourseListComponent,
-  EmailValidatorDirective
+  EmailValidatorDirective,
+  DurationPipe,
+  CreationDatePipe
 ];
 
 @NgModule({

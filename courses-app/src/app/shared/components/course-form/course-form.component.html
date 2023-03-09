@@ -89,7 +89,7 @@
           />
 
           <div class="course__duration">
-            {{getCourseDurationText()}}
+            {{durationValue | duration}}
           </div>
         </div>
         <div *ngIf="duration && duration.invalid && (form.submitted || duration.touched || duration.dirty)">

@@ -10,8 +10,8 @@
               <b>Authors: </b>
               {{getAuthorsText()}}
             </div>
-            <div><b>Duration: </b>{{getCourseDurationText()}}</div>
-            <div><b>Created: </b>{{getCourseCreationDateText()}}</div>
+            <div><b>Duration: </b>{{courseInfo.duration | duration}}</div>
+            <div><b>Created: </b>{{courseInfo.creationDate | creationDate}}</div>
         </div>
         <div class="course-card__info-actions">
           <ng-content></ng-content>

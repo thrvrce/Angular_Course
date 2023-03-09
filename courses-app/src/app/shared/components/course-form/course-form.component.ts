@@ -63,14 +63,4 @@ export class CourseFormComponent {
   log(i?: any) {
     console.log('log', i);
   }
-
-  getCourseDurationText() {
-    const minutes = this.durationValue % 60;
-    const hours = (this.durationValue - minutes) / 60;
-    const courseDurationText = `${withLeadZero(String(hours))}:${withLeadZero(
-      String(minutes)
-    )}`;
-
-    return courseDurationText;
-  }
 }
