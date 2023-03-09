@@ -34,4 +34,23 @@
     margin-left: 4px;
     cursor: pointer;
   }
+
+  &__control {
+    display: flex;
+    flex-direction: column;
+    margin-top: 54px;
+
+    &-input {
+      height: 50px;
+      width: 286px;
+
+      &_error {
+        border: 2px solid red;
+      }
+    }
+
+    &-error-text {
+      color: red;
+    }
+  }
 }

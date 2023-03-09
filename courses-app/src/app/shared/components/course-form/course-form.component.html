@@ -1,58 +1,105 @@
 <!-- Replace ::text:: with your code -->
 <h2>Create / Edit Course</h2>
-<form>
+<form [formGroup]="courseForm" #form="ngForm">
   <div class="app-plate">
     <div class="course">
       <h3>Main Info</h3>
-      <div class="form__control">
-        <label for="title">Title</label>
+      <div class="course__control">
+        <label for="title"><strong>Title</strong></label>
         <input
+        [ngClass]="
+          title?.invalid &&
+          (form.submitted || title?.touched || title?.dirty)
+            ? 'course__control-input_error'
+            : ''
+        "
           type="text"
           id="title"
           placeholder="Input text"
+          formControlName="title"
         />
+        <div *ngIf="title && title.invalid && (form.submitted || title.touched || title.dirty)">
+          <div class="course__control-error-text" *ngIf="title.errors?.['required']">Title is required.</div>
+        </div>
       </div>
-      <div class="form__control">
-        <label for="description">Description</label>
+      <div class="course__control">
+        <label for="description"><strong>Description</strong></label>
         <textarea
+        [ngClass]="
+        description?.invalid &&
+        (form.submitted || description?.touched || description?.dirty)
+          ? 'course__control-input_error'
+          : ''
+      "
           id="description"
           name="description"
           placeholder="Input text"
           rows="4"
           cols="5"
+          formControlName="description"
         ></textarea>
+        <div *ngIf="description && description.invalid && (form.submitted || description.touched || description.dirty)">
+          <div class="course__control-error-text" *ngIf="description.errors?.['required']">Description is required.</div>
+        </div>
       </div>
       <div class="separator"></div>
       <h3>Authors</h3>
-      <div class="form__control">
+
+      <form class="" [formGroup]="author" (ngSubmit)="addAuthor()">
         <div class="course__flex">
+          <div class="course__control">
+            <label for="author"><strong>Author Name</strong></label>
           <input
             type="text"
             id="author"
             placeholder="Input Author Name"
+            formControlName="authorInput"
           />
-          <app-button></app-button>
+          </div>
+          <app-button text="create author" type="submit"></app-button>
         </div>
         <div class="course__authors">
-          ::Authors::
+          <ng-container *ngIf="authors.controls.length">
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+              <ng-container *ngFor="let author of authors.controls;let i = index ">
+                <div [formGroup]="author" style="display: flex; flex-direction: row;">
+                  <input formControlName="authorName" disable style="border: none;"/>
+                  <div (click)="deleteAuthor(i)"><fa-icon [icon]="faRemove" style="margin: 0px 5px 0px"></fa-icon></div>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
         </div>
-      </div>
+      </form>
       <div class="separator"></div>
       <h3>Duration</h3>
-      <div class="form__control">
+      <div class="course__control">
         <div class="course__flex">
           <input
+          [ngClass]="
+          duration?.invalid &&
+          (form.submitted || duration?.touched || duration?.dirty)
+            ? 'course__control-input_error'
+            : ''
+        "
             type="number"
             id="duration"
             placeholder="Input duration"
+            formControlName="duration"
           />
+
           <div class="course__duration">
-            ::Duration::
+            {{durationValue | duration}}
           </div>
         </div>
+        <div *ngIf="duration && duration.invalid && (form.submitted || duration.touched || duration.dirty)">
+          <div class="course__control-error-text" *ngIf="duration.errors?.['required']">Duration is required.</div>
+          <div class="course__control-error-text" *ngIf="duration.errors?.['min']">Duration should not be lesser then 0.</div>
+        </div>
       </div>
-      <div class="form__action">
-        <app-button></app-button>
+      <div class="course__action">
+        <app-button text="cancel"></app-button>
+        <app-button text="create course" type="submit"></app-button>
       </div>
     </div>
   </div>
