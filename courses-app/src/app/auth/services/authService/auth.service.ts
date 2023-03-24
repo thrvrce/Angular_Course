@@ -43,6 +43,10 @@ export class AuthService {
     private sessionStorageService: SessionStorageService
   ) {}
 
+  getAuthorizationToken () {
+    return this.sessionStorageService.getToken() ?? ''
+  }
+
   private handleError(method: string) {
     return (error: HttpErrorResponse) => {
       throw new Error(`AuthService.${method} error`, { cause: error });

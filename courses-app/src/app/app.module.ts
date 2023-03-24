@@ -14,6 +14,8 @@ import { AuthService } from './auth/services/authService/auth.service';
 import { AuthorizedGuard } from './auth/guards/authorizedGuard/authorized.guard';
 import { NotAuthorizedGuard } from './auth/guards/notAuthorizedGuard/not-authorized.guard';
 import { AuthInterceptor } from './auth/interceptors/token.interceptor';
+import { CoursesService } from './services/courses/courses.service';
+import { CoursesStoreService } from './services/coursesStore/courses-store.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +31,9 @@ import { AuthInterceptor } from './auth/interceptors/token.interceptor';
     AuthService,
     AuthorizedGuard,
     NotAuthorizedGuard,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    CoursesService,
+    CoursesStoreService,
   ],
   bootstrap: [AppComponent]
 })
