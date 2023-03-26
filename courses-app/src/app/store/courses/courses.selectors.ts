@@ -4,6 +4,7 @@ import { State } from "../store.type";
 const getCorsesReducer = (state: State) => state.coursesReducer
 
 export const isAllCoursesLoadingSelector = (state: State) => getCorsesReducer(state).isAllCoursesLoading
+export const isSearchingStateSelector = (state: State) => getCorsesReducer(state).isSearchState
 export const isSingleCourseLoadingSelector = (state: State) => getCorsesReducer(state).isSingleCourseLoading
 export const getCourses = (state: State) => getCorsesReducer(state).allCourses
 export const getAllCourses = (state: State) => getCorsesReducer(state).allCourses
