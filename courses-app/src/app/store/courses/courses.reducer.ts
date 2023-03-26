@@ -58,6 +58,7 @@ export const coursesStateReducer = createReducer(
   on(requestAllCoursesSuccess, (state, { courses }) =>
     produce(state, (draft) => {
       draft.isAllCoursesLoading = false;
+      draft.isSearchState = false;
       draft.allCourses = courses;
     })
   ),
@@ -94,6 +95,7 @@ export const coursesStateReducer = createReducer(
   on(requestFilteredCoursesSuccess, (state, { courses }) =>
     produce(state, (draft) => {
       draft.isAllCoursesLoading = false;
+      draft.isSearchState = true;
       draft.allCourses = courses;
     })
   ),

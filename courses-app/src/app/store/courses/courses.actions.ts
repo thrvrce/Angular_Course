@@ -40,13 +40,13 @@ export const requestFilteredCoursesSuccess= createAction(CoursesActionTypes.requ
 export const requestFilteredCoursesFail= createAction(CoursesActionTypes.requestFilteredCoursesFail, props<{ error: Error }>())
 // Actions for delete course
 export const requestDeleteCourse= createAction(CoursesActionTypes.requestDeleteCourseStart, props<{courseId: string}>())
-export const requestDeleteCourseSuccess= createAction(CoursesActionTypes.requestDeleteCourseSuccess, props<{ finished: true }>())
+export const requestDeleteCourseSuccess= createAction(CoursesActionTypes.requestDeleteCourseSuccess, props<{ finished: boolean }>())
 export const requestDeleteCourseFail= createAction(CoursesActionTypes.requestDeleteCourseFail, props<{ error: Error }>())
 // Actions for edit course
 export const requestEditCourse= createAction(CoursesActionTypes.requestEditCourseStart, props<{courseId: string, course: Omit<Course, 'id'>}>())
-export const requestEditCourseSuccess= createAction(CoursesActionTypes.requestEditCourseSuccess, props<{ finished: true }>())
+export const requestEditCourseSuccess= createAction(CoursesActionTypes.requestEditCourseSuccess, props<{ finished: boolean }>())
 export const requestEditCourseFail= createAction(CoursesActionTypes.requestEditCourseFail, props<{ error: Error }>())
 // Actions for create course
 export const requestCreateCourse= createAction(CoursesActionTypes.requestCreateCourseStart, props<{course: Omit<Course, 'id'>}>())
-export const requestCreateCourseSuccess= createAction(CoursesActionTypes.requestCreateCourseSuccess, props<{ finished: true }>())
+export const requestCreateCourseSuccess= createAction(CoursesActionTypes.requestCreateCourseSuccess, props<{ finished: boolean }>())
 export const requestCreateCourseFail= createAction(CoursesActionTypes.requestCreateCourseFail, props<{ error: Error }>())

@@ -44,14 +44,17 @@ export class CoursesStateFacade {
   }
 
   getFilteredCourses(searchConfig: Partial<Pick<Course, 'title' | 'duration' | 'authors'>>) {
-    this.store.dispatch(requestFilteredCourses({ searchConfig }));
+    this.store.dispatch(requestFilteredCourses({searchConfig}));
   }
+
   editCourse(courseId: string, course: Omit<Course, 'id'>) {
     this.store.dispatch(requestEditCourse({ courseId, course }));
   }
+
   createCourse(course: Omit<Course, 'id'>) {
     this.store.dispatch(requestCreateCourse({ course }));
   }
+
   deleteCourse(courseId: string) {
     this.store.dispatch(requestDeleteCourse({ courseId }));
   }

@@ -20,6 +20,8 @@ import { UserService } from './user/service/userService/user.service';
 import { UserStoreService } from './user/service/useStore/user-store.service';
 import { reducers, effects } from './store';
 import { CoursesStateFacade } from './store/courses/courses.facade';
+import { CoursesEffects } from './store/courses/courses.effects';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -50,7 +52,8 @@ import { CoursesStateFacade } from './store/courses/courses.facade';
     CoursesStoreService,
     UserService,
     UserStoreService,
-    CoursesStateFacade
+    CoursesStateFacade,
+    CoursesEffects
   ],
   bootstrap: [AppComponent]
 })
