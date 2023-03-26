@@ -1,5 +1,8 @@
-import { ActionReducerMap } from "@ngrx/store";
+import { Action, ActionReducerMap } from "@ngrx/store";
+import { CoursesState, coursesReducer, coursesStateReducer } from "./courses/courses.reducer";
+import { State } from "./store.type";
 
-interface State {}
-export const reducers: ActionReducerMap<State> = {}
+export const reducers: ActionReducerMap<State> = {
+  coursesReducer,
+}
 export const effects = []

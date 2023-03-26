@@ -27,26 +27,26 @@ requestCreateCourseSuccess = 'requestCreateCourseSuccess',
 requestCreateCourseFail = 'requestCreateCourseFail',
 }
 
-const requestAllCourses = createAction(CoursesActionTypes.requestAllCoursesStart)
-const requestAllCoursesSuccess = createAction(CoursesActionTypes.requestAllCoursesSuccess, props<{ courses: Course[] }>())
-const requestAllCoursesFail = createAction(CoursesActionTypes.requestAllCoursesFail, props<{ error: Error }>())
+export const requestAllCourses = createAction(CoursesActionTypes.requestAllCoursesStart)
+export const requestAllCoursesSuccess = createAction(CoursesActionTypes.requestAllCoursesSuccess, props<{ courses: Course[] }>())
+export const requestAllCoursesFail = createAction(CoursesActionTypes.requestAllCoursesFail, props<{ error: Error }>())
 // Actions for request individual course
-const requestSingleCourse= createAction(CoursesActionTypes.requestSingleCourseStart)
-const requestSingleCourseSuccess= createAction(CoursesActionTypes.requestSingleCourseSuccess, props<{ course: Course }>())
-const requestSingleCourseFail= createAction(CoursesActionTypes.requestSingleCourseFail, props<{ error: Error }>())
+export const requestSingleCourse= createAction(CoursesActionTypes.requestSingleCourseStart)
+export const requestSingleCourseSuccess= createAction(CoursesActionTypes.requestSingleCourseSuccess, props<{ course: Course }>())
+export const requestSingleCourseFail= createAction(CoursesActionTypes.requestSingleCourseFail, props<{ error: Error }>())
 // Actions for request filtered Courses
-const requestFilteredCourses= createAction(CoursesActionTypes.requestFilteredCoursesStart)
-const requestFilteredCoursesSuccess= createAction(CoursesActionTypes.requestFilteredCoursesSuccess, props<{ courses: Course[] }>())
-const requestFilteredCoursesFail= createAction(CoursesActionTypes.requestFilteredCoursesFail, props<{ error: Error }>())
+export const requestFilteredCourses= createAction(CoursesActionTypes.requestFilteredCoursesStart)
+export const requestFilteredCoursesSuccess= createAction(CoursesActionTypes.requestFilteredCoursesSuccess, props<{ courses: Course[] }>())
+export const requestFilteredCoursesFail= createAction(CoursesActionTypes.requestFilteredCoursesFail, props<{ error: Error }>())
 // Actions for delete course
-const requestDeleteCourse= createAction(CoursesActionTypes.requestDeleteCourseStart)
-const requestDeleteCourseSuccess= createAction(CoursesActionTypes.requestDeleteCourseSuccess, props<{ finished: true }>())
-const requestDeleteCourseFail= createAction(CoursesActionTypes.requestDeleteCourseFail, props<{ error: Error }>())
+export const requestDeleteCourse= createAction(CoursesActionTypes.requestDeleteCourseStart)
+export const requestDeleteCourseSuccess= createAction(CoursesActionTypes.requestDeleteCourseSuccess, props<{ finished: true }>())
+export const requestDeleteCourseFail= createAction(CoursesActionTypes.requestDeleteCourseFail, props<{ error: Error }>())
 // Actions for edit course
-const requestEditCourse= createAction(CoursesActionTypes.requestEditCourseStart)
-const requestEditCourseSuccess= createAction(CoursesActionTypes.requestEditCourseSuccess, props<{ finished: true }>())
-const requestEditCourseFail= createAction(CoursesActionTypes.requestEditCourseFail, props<{ error: Error }>())
+export const requestEditCourse= createAction(CoursesActionTypes.requestEditCourseStart)
+export const requestEditCourseSuccess= createAction(CoursesActionTypes.requestEditCourseSuccess, props<{ finished: true }>())
+export const requestEditCourseFail= createAction(CoursesActionTypes.requestEditCourseFail, props<{ error: Error }>())
 // Actions for create course
-const requestCreateCourse= createAction(CoursesActionTypes.requestCreateCourseStart)
-const requestCreateCourseSuccess= createAction(CoursesActionTypes.requestCreateCourseSuccess, props<{ finished: true }>())
-const requestCreateCourseFail= createAction(CoursesActionTypes.requestCreateCourseFail, props<{ error: Error }>())
+export const requestCreateCourse= createAction(CoursesActionTypes.requestCreateCourseStart)
+export const requestCreateCourseSuccess= createAction(CoursesActionTypes.requestCreateCourseSuccess, props<{ finished: true }>())
+export const requestCreateCourseFail= createAction(CoursesActionTypes.requestCreateCourseFail, props<{ error: Error }>())
