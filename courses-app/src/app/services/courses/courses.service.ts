@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, catchError } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 export type Course = {
   title: string;
@@ -67,6 +68,44 @@ export class CoursesService {
       .pipe(
         map(() => ({ finished: true })),
         catchError(this.handleError('deleteCourse'))
+      );
+  }
+
+  getFilteredCourses(config: {duration?: string[]; creationDate?: string[]; description?: string[]; title?: string[]}) {
+    const {duration, creationDate, description, title} = config;
+
+    if(
+      (!duration || !duration.length) &&
+      (!creationDate || !creationDate.length) &&
+      (!description || !description.length ) &&
+      (!title || !title.length)) {
+      throw new Error('Empty search config')
+    }
+
+    const params = new HttpParams()
+
+    if(duration?.length) {
+      params.set('duration', duration.join(','))
+    }
+
+    if(creationDate?.length) {
+      params.set('creationDate', creationDate.join(','))
+    }
+
+    if(description?.length) {
+      params.set('description', description.join(','))
+    }
+
+    if(title?.length) {
+      params.set('title', title.join(','))
+    }
+
+
+    return this.httpClient
+      .get<CoursesResponse<Course[]>>('localhost:4000//courses/filter', { params })
+      .pipe(
+        map((response) => response.result),
+        catchError(this.handleError('getAll'))
       );
   }
 }
